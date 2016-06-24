@@ -65,7 +65,7 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="/fu_logout">
+                                    <a href="/admin">
                                         <i class="icon-off"></i>
                                         Logout
                                     </a>
