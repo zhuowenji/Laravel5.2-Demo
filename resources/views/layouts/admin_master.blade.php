@@ -51,7 +51,7 @@
                                 <img class="nav-user-photo" src="/assets/avatars/user.jpg" alt="Jason's Photo" />
                                 <span class="user-info">
                                     <small>Welcome,</small>
-                                        admin
+                                        {{ Auth::user()->username }}
                                 </span>
 
                                 <i class="icon-caret-down"></i>
@@ -65,7 +65,7 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="/admin">
+                                    <a href="/admin_logout">
                                         <i class="icon-off"></i>
                                         Logout
                                     </a>

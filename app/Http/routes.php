@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Login and Logout
+Route::get('admin_login', 'Admin\SiteController@getLogin');
+Route::post('admin_login', 'Admin\SiteController@postLogin');
+Route::get('admin_logout', 'Admin\SiteController@logout');
+
 // Controllers Within The "App\Http\Controllers\Admin" Namespace
-Route::group(['namespace' => 'Admin'], function () {
+Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function () {
     Route::controller('admin', 'IndexController');
 });
