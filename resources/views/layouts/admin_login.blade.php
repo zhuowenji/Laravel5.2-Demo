@@ -54,7 +54,7 @@
                                     <span class="red">Admin</span>
                                     <span class="white">Backstage</span>
                                 </h1>
-                                <h4 class="blue">&copy; Zhuo wenji</h4>
+                                <h4 class="blue">&copy; Admin</h4>
                             </div>
 
                             <div class="space-6"></div>
@@ -67,22 +67,19 @@
                                                 <i class="icon-coffee green"></i>
                                                 请输入您的信息
                                             </h4>
-
                                             <div class="space-6"></div>
-
-                                            <form method="POST" action="/admin_login">
-                                                {!! csrf_field() !!}
+                                            {{ Form::open(array('action' => 'Admin\SiteController@postLogin')) }}
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                          <input type="text" name="username" value="{{ old('username') }}" class="form-control" placeholder="Username" >
+                                                            {{ Form::text('username', Input::old('username'), [ 'class' => 'form-control', 'placeholder' => 'Username'] ) }}
                                                             <i class="icon-user"></i>
                                                         </span>
                                                     </label>
 
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                                            {{ Form::password('password',  [ 'class' => 'form-control', 'placeholder' => 'Password' ]) }}
                                                             <i class="icon-lock"></i>
                                                         </span>
                                                     </label>
@@ -94,15 +91,13 @@
                                                     <!-- <div class="space"></div> -->
 
                                                     <div class="clearfix">
-                                                        <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
-                                                        <i class="icon-key"></i>确定登录
-                                                        </button>
-                                                        <a href="/" class="width-35  btn btn-sm btn-warning">返回前台首页</a>
+                                                        {{ Form::submit('确定登录', [ 'class' => 'width-35  btn btn-sm btn-primary' ]) }}
+                                                        {{ Html::link('/', '返回前台首页', [ 'class' => 'width-35  btn btn-sm btn-warning' ]) }}
                                                     </div>
 
                                                     <div class="space-4"></div>
                                                 </fieldset>
-                                            </form>
+                                            {{ Form::close() }}
                                         </div><!-- /widget-main -->
                                     </div><!-- /widget-body -->
                                 </div><!-- /login-box -->
