@@ -14,6 +14,10 @@ class CreateElasticsTable extends Migration
     {
         Schema::create('elastics', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('tag');
+            $table->string('title');
+            $table->mediumText('content');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
