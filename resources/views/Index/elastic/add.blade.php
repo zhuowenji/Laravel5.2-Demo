@@ -16,11 +16,11 @@
 {!! Form::open() !!}
    <div class="form-group">
        {!! Form::label('title', '标题:') !!}
-       {!! Form::text('title', Input::old('title'),['class'=>'form-control']) !!}
+       {!! Form::text('title', Input::old('title'), ['class'=>'form-control', 'required' => 'required']) !!}
    </div>
    <div class="form-group">
        {!! Form::label('content','正文:') !!}
-       {!! Form::textarea('content', Input::old('content'),['class'=>'form-control']) !!}
+       {!! Form::textarea('content', Input::old('content'), ['class'=>'form-control', 'required' => 'required']) !!}
    </div>
    <div class="form-group">
        {!! Form::submit('添加数据',['class'=>'btn btn-success form-control']) !!}

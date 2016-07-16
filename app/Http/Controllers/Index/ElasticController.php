@@ -13,6 +13,20 @@ use View;
 class ElasticController extends Controller
 {
 
+    public function getIndex()
+    {
+        $elastic = new Elastic;
+
+        if (!$elastic->typeExists()) {
+            //搜索数据库存入es
+            $elastic->addAllToIndex();
+        };
+
+        $list = $elastic->orderby('id', 'desc')->paginate(10);
+
+        return View::make('index/elastic/index')->with(compact('list'));
+    }
+
     public function getSearch(Request $reques)
     {
         $elastic = new Elastic;
@@ -23,21 +37,6 @@ class ElasticController extends Controller
         $list = $elastic->search($data['info'])->toArray();
 
         return View::make('index/elastic/search')->with(compact('list'));
-    }
-
-    public function getIndex()
-    {
-        $elastic = new Elastic;
-
-        if (!$elastic->typeExists()) {
-            //搜索数据库存入es
-            $elastic->addAllToIndex();
-        };
-
-        $list = $elastic->paginate(10);
-
-        return View::make('index/elastic/index')->with(compact('list'));
-
     }
 
     public function getAdd()
