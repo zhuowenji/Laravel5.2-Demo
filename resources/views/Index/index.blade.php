@@ -1,15 +1,13 @@
-@extends('layouts/admin_master')
+@extends('layouts/index')
 @section('content')
-<div class="page-header">
-    <h1>
-        Dashboard
-        <small>
-            <i class="icon-double-angle-right"></i>
-            概述 &amp; 统计
-        </small>
-    </h1>
-</div><!-- /.page-header -->
 @include('notification')
+
+<div class="page-header">
+  <h1>
+    <a href="/elastic" >Home</a>
+  </h1>
+</div><!-- /.page-header -->
+
 <div class="row">
     <div class="col-xs-12">
         <!-- PAGE CONTENT BEGINS -->
@@ -20,10 +18,8 @@
             </button>
             <i class="icon-ok green"></i>
              Welcome
-
         </div>
-
-        <!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
 </div><!-- /.row -->
+
 @stop

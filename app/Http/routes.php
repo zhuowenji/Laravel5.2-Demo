@@ -11,8 +11,10 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'Index\IndexController@index');
+
+Route::group(['namespace' => 'Index'], function () {
+    Route::controller('elastic', 'ElasticController');
 });
 
 //Login and Logout
