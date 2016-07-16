@@ -9,16 +9,16 @@ class Elastic extends Model
 {
     use ElasticquentTrait;
 
-    protected $table = 'articles';
+    protected $table = 'elastics';
 
     public function getIndexName()
     {
-        return 'article_index';
+        return 'elastic';
     }
 
     public function getTypeName()
     {
-        return 'article_type';
+        return 'elastic_type';
     }
 
 }
