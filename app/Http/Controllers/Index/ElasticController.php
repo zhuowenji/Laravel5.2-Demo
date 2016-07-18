@@ -34,7 +34,13 @@ class ElasticController extends Controller
         // 获取提交数据
         $data = $reques->all();
 
-        $list = $elastic->search($data['info'])->toArray();
+        if ($data['key'] == 'all') {
+            $list = $elastic->search($data['info'])->paginate(1);
+        } else {
+            $list = $elastic->searchByQuery(['match_phrase' => [$data['key'] => $data['info']]]);
+        }
+
+        // dd($list);
 
         return View::make('index/elastic/search')->with(compact('list'));
     }

@@ -13,8 +13,13 @@
 </div><!-- /.page-header -->
 
 {!! Form::open(['url'=>'/elastic/search','method'=>"get"]) !!}
+
 <div class="col-sm-2">
-  {{Form::text('info', Input::get('info'), array('class' => 'input-group form-control search-query', 'placeholder' => '请输入搜索信息'))}}
+  {{ Form::select('key', ['all' => '全文搜索', 'title' => '标题', 'content' => '内容' ], Input::get('key'), [ "class" => "input-group form-control search-query" ]) }}
+</div>
+
+<div class="col-sm-2">
+  {{ Form::text('info', Input::get('info'), [ 'class' => 'input-group form-control search-query', 'placeholder' => '请输入搜索信息' ]) }}
 </div>
 
 <span class="input-group-btn">
